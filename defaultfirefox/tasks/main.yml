@@ -1,23 +1,28 @@
 ---
 - name: Set Firefox as default HTTP handler
-  win_regmerge:
-    path: HKLM:\SOFTWARE\Clients\StartMenuInternet\Firefox\Capabilities\URLAssociations
-    data:
-      http: FirefoxURL
-      https: FirefoxURL
-    type: dword
-    state: present
-    
+  win_regedit:
+    path: HKLM\SOFTWARE\Clients\StartMenuInternet\Firefox\Capabilities\URLAssociations
+    name: http
+    data: "FirefoxURL"
+    type: string
+
+- name: Set Firefox as default HTTPS handler
+  win_regedit:
+    path: HKLM\SOFTWARE\Clients\StartMenuInternet\Firefox\Capabilities\URLAssociations
+    name: https
+    data: "FirefoxURL"
+    type: string
+
 - name: Set Firefox as default browser
-  win_regmerge:
-    path: HKLM:\SOFTWARE\Clients\StartMenuInternet\Firefox
-    data:
-      (default): Firefox
-    state: present
+  win_regedit:
+    path: HKLM\SOFTWARE\Clients\StartMenuInternet\Firefox
+    name: (default)
+    data: "Firefox"
+    type: string
 
 - name: Set Firefox as default browser handler
-  win_regmerge:
-    path: HKLM:\SOFTWARE\Clients\StartMenuInternet
-    data:
-      (default): Firefox
-    state: present
+  win_regedit:
+    path: HKLM\SOFTWARE\Clients\StartMenuInternet
+    name: (default)
+    data: "Firefox"
+    type: string
