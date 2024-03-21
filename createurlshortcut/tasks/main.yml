@@ -1,7 +1,7 @@
 ---
 - name: Create desktop shortcut
   win_shell: |
-    $url = "{{ udemy_url }}"
+    $url = "{{ target_url }}"
     $shortcutPath = "$env:PUBLIC\Desktop\Udemy.lnk"
         
     $WshShell = New-Object -ComObject WScript.Shell
