@@ -1,7 +1,7 @@
 ---
 - name: Copy icon file to target machine
   win_copy:
-    src: files/{{ url_name }}_icon.ico
+    src: {{ url_name }}_icon.ico
     dest: C:\Temp\{{ url_name }}_icon.ico  # Destination path on the target machine
     remote_src: yes
 
