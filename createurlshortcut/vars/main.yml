@@ -1,2 +1,2 @@
 ---
-udemy_url: "{{ url }}"
+target_url: "{{ url }}"
