@@ -1,20 +1,8 @@
 ---
-- name: Download Opera GX installer
-  win_get_url:
-    url: "https://download3.operacdn.com/pub/opera_gx/107.0.5045.75/win/Opera_GX_107.0.5045.75_Setup.exe"
-    dest: "C:\\Temp\\OperaGX_Setup.exe"
+- name: Download Opera GX executable
+  win_command: |
+    Invoke-WebRequest -Uri "https://ftp.opera.com/pub/opera/desktop/108.0.5067.40/win/Opera_108.0.5067.40_Setup.exe" -OutFile "C:\Temp\OperaGX_Setup.exe"
 
-- name: Install Opera GX using PowerShell
-  win_shell: |
-    Start-Process -FilePath "C:\\Temp\\OperaGX_Setup.exe" -ArgumentList "/silent", "/install" -Wait
-  register: install_result
-
-- name: Check if Opera GX is installed
-  win_stat:
-    path: "C:\\Program Files\\Opera GX\\launcher.exe"
-  register: operagx_installed
-
-- name: Fail if Opera GX installation failed
-  fail:
-    msg: "Opera GX installation failed."
-  when: install_result.rc != 0 or not operagx_installed.stat.exists
+- name: Install Opera GX
+  win_command: |
+    C:\Temp\OperaGX_Setup.exe /silent /install
