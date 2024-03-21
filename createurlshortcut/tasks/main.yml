@@ -3,7 +3,7 @@
   win_copy:
     src: "{{ url_name }}_icon.ico"
     dest: C:\Temp\{{ url_name }}_icon.ico  # Destination path on the target machine
-    remote_src: yes
+    #remote_src: yes
 
 - name: Create desktop shortcut
   win_shell: |
