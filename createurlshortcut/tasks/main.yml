@@ -1,13 +1,18 @@
 ---
+- name: Copy icon file to target machine
+  win_copy:
+    src: files/{{ url_name }}_icon.ico
+    dest: C:\Temp\{{ url_name }}_icon.ico  # Destination path on the target machine
+
 - name: Create desktop shortcut
   win_shell: |
     $url = "{{ target_url }}"
-    $shortcutPath = "$env:PUBLIC\Desktop\{{ url_name }}.lnk"
+    $shortcutPath = "$env:PUBLIC\Desktop\Udemy.lnk"
         
     $WshShell = New-Object -ComObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($shortcutPath)
         
     $Shortcut.TargetPath = $url
-    $Shortcut.IconLocation = "C:\Windows\System32\imageres.dll, 14"  # Icon for the shortcut (you can change it)
+    $Shortcut.IconLocation = "C:\Temp\udemy_icon.ico"  # Path to the icon file on the target machine
     $Shortcut.Description = "{{ url_name }} Website"
     $Shortcut.Save()
