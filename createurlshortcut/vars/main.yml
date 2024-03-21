@@ -1,2 +1,2 @@
 ---
-udemy_url: "https://www.udemy.com"
+udemy_url: "{{ url }}"
