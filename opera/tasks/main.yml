@@ -1,0 +1,8 @@
+---
+- name: Download Opera installer
+  win_get_url:
+    url: "{{ opera_url }}" #https://download3.operacdn.com/pub/opera/desktop/82.0.4227.51/win/Opera_82.0.4227.51_Setup.exe
+    dest: "{{ temp_location }}" #C:\Temp\Opera_Setup.exe
+
+- name: Install Opera
+  win_command: "{{ temp_location }}" /silent /install
