@@ -1,7 +1,7 @@
 ---
 - name: Download Opera GX installer
   win_get_url:
-    url: "https://download3.operacdn.com/pub/opera_gx/desktop/83.0.4254.27/win/Opera_GX_83.0.4254.27_Setup.exe"
+    url: "https://download3.operacdn.com/pub/opera_gx/107.0.5045.75/win/Opera_GX_107.0.5045.75_Setup.exe"
     dest: "C:\\Temp\\OperaGX_Setup.exe"
 
 - name: Install Opera GX
