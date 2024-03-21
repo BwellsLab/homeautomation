@@ -1,18 +1,13 @@
 ---
-- name: Create desktop shortcut for Udemy
-  hosts: windows
-  become: yes
-
-  tasks:
-    - name: Create desktop shortcut
-      win_shell: |
-        $url = "https://www.udemy.com"
-        $shortcutPath = "$env:PUBLIC\Desktop\Udemy.lnk"
+- name: Create desktop shortcut
+  win_shell: |
+    $url = "https://www.udemy.com"
+    $shortcutPath = "$env:PUBLIC\Desktop\Udemy.lnk"
         
-        $WshShell = New-Object -ComObject WScript.Shell
-        $Shortcut = $WshShell.CreateShortcut($shortcutPath)
+    $WshShell = New-Object -ComObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut($shortcutPath)
         
-        $Shortcut.TargetPath = $url
-        $Shortcut.IconLocation = "C:\Windows\System32\imageres.dll, 14"  # Icon for the shortcut (you can change it)
-        $Shortcut.Description = "Udemy Website"
-        $Shortcut.Save()
+    $Shortcut.TargetPath = $url
+    $Shortcut.IconLocation = "C:\Windows\System32\imageres.dll, 14"  # Icon for the shortcut (you can change it)
+    $Shortcut.Description = "Udemy Website"
+    $Shortcut.Save()
