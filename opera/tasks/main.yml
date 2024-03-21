@@ -5,4 +5,4 @@
     dest: "{{ temp_location }}" 
 
 - name: Install Opera
-  win_command: {{ temp_location }} /silent /install
+  win_command: "{{ temp_location }}" /silent /install
