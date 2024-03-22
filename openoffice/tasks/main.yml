@@ -1,0 +1,8 @@
+---
+- name: Download OpenOffice installer
+  win_get_url:
+    url: "https://downloads.apache.org/openoffice/4.1.11/binaries/en-US/Apache_OpenOffice_4.1.11_Win_x86_install_en-US.exe"
+    dest: "C:\\Temp\\Apache_OpenOffice_4.1.11_Win_x86_install_en-US.exe"
+
+- name: Install OpenOffice
+  win_command: "C:\\Temp\\Apache_OpenOffice_4.1.11_Win_x86_install_en-US.exe /S"
